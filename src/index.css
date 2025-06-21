@@ -36,9 +36,20 @@ h1 {
 button {
   border-radius: 8px;
   border: 1px solid transparent;
+  font-size: 3rem;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+  margin: 0;
+}
+
+.emoji button {
+  border-radius: 8px;
+  border: 1px solid transparent;
   width: 100px;
   height: 100px;
-  font-size: 3rem;
+  font-size: 2rem;
   font-family: inherit;
   background-color: #1a1a1a;
   cursor: pointer;
@@ -74,7 +85,4 @@ button:focus-visible {
 
 .emoji {
   list-style: none;
-}
-.emoji button {
-  font-size: 2rem;
 }

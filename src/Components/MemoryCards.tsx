@@ -1,10 +1,14 @@
-
 // import * as React from "react";
 
-// @ts-ignore
-export default function MemoryCard ({handleClick}) {
+import Card from "./Card.tsx";
+
+interface CardProps {
+    handleClick : (index : number) => void;
+}
+
+export default function MemoryCards ({handleClick} : CardProps) {
     const emojiArr = ['🐶', '🐷', '🐙', '🐛', '🐵', '🐶', '🐷', '🐙', '🐛', '🐵']
-    // const [openedCards, setOpenedCards] = React.useState<number[]>([])
+    //перенести в json или отдельный обьект
 
     //random card pos.
     for (let i = 0; i < emojiArr.length; i++) {
@@ -14,19 +18,12 @@ export default function MemoryCard ({handleClick}) {
         emojiArr[r] = temp
     }
 
-    const emojiElem = emojiArr.map((emoji, index) =>
-        <li className="emoji" key={index}>
-            <button
-                className="card-btn"
-                onClick ={handleClick}
-            >
-                {emoji}
-            </button>
-        </li>
-    )
-
     return (
-            <div className="game">{emojiElem}</div>
+        <div className="game">
+            {emojiArr.map((emoji, index) => (
+                <Card key={index} emoji={emoji} index={index} onClick={handleClick} />
+            ))}
+        </div>
     )
 }
 
